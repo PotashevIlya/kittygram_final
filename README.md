@@ -1,26 +1,39 @@
-#  Как работать с репозиторием финального задания
-
-## Что нужно сделать
-
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
-
-## Как проверить работу с помощью автотестов
-
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+# Проект Kittygram
+## Описание проекта
+Kittygram - это проект, который позволяет вам делиться с миром информацией о своих котиках. Вы можете загрузить фотографию вашего любимца, указать его имя, год рождения и, конечно же, самые разнообразные "достижения". 
+## Как запустить проект
+1. Клонировать репозиторий и перейти в него в командной строке:
 ```
+https://github.com/PotashevIlya/kittygram_final
+```
+```
+cd kittygram_final
+```
+2. Создать .env файл в корневой директории по образцу .env.example
+3. Запустить docker-compose
+```
+docker compose -f docker-compose.production.yml up
+```
+4. Применить миграции в контейнере бекэнда
+```
+docker compose -f docker-compose.production.yml exec backend python manage.py migrate
+```
+5. Собрать статику бекэнда
+```
+docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
+```
+6. Скопировать статику в директорию, связанную с volume
+```
+docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+```
+___
+### Стек :bulb:
+Django, Gunicorn, nginx, Rest API (DRF), PostgreSQL, Docker, CI/CD (GitHub Actions), React, Yandex Cloud.
+___
+### Workflow
+[![Main Kittygram workflow](https://github.com/PotashevIlya/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/PotashevIlya/kittygram_final/actions/workflows/main.yml)
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+___  
+#### Автор проекта:    
+:small_orange_diamond: [Поташев Илья](https://github.com/PotashevIlya)  
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
-
-## Чек-лист для проверки перед отправкой задания
-
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
