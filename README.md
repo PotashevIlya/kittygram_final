@@ -31,7 +31,7 @@ ___
 Django, Gunicorn, nginx, Rest API (DRF), PostgreSQL, Docker, CI/CD (GitHub Actions), React, Yandex Cloud.
 ___
 ### Workflow
-https://github.com/PotashevIlya/kittygram_final/.github/workflows/main.yml/badge.svg
+![example workflow](https://github.com/PotashevIlya/kittygram_final/.github/workflows/main.yml/badge.svg)
 
 ___  
 #### Автор проекта:    
