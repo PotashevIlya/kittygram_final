@@ -10,7 +10,7 @@ https://github.com/PotashevIlya/kittygram_final
 cd kittygram_final
 ```
 2. Создать .env файл в корневой директории по образцу .env.example
-3. Запустить docker-compose:
+3. Запустить docker-compose
 ```
 docker compose -f docker-compose.production.yml up
 ```
@@ -29,6 +29,11 @@ docker compose -f docker-compose.production.yml exec backend cp -r /app/collecte
 ___
 ### Стек :bulb:
 Django, Gunicorn, nginx, Rest API (DRF), PostgreSQL, Docker, CI/CD (GitHub Actions), React, Yandex Cloud.
+___
+### Workflow
+https://github.com/PotashevIlya/kittygram_final/.github/workflows/main.yml/badge.svg
+
 ___  
 #### Автор проекта:    
 :small_orange_diamond: [Поташев Илья](https://github.com/PotashevIlya)  
+
