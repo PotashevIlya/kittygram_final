@@ -10,10 +10,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG_MODE')
 
-try:
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(', ')
-except AttributeError:
-    pass
+HOSTS = os.getenv('ALLOWED_HOSTS')
+ALLOWED_HOSTS = HOSTS.split(', ')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
