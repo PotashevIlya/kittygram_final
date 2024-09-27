@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', default='secret_key')
 
-DEBUG = os.getenv('DEBUG_MODE')
+DEBUG = os.getenv('DEBUG_MODE', default='False') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALOWED_HOSTS', default='hosts').split(', ')
 
@@ -55,7 +55,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
-USE_SQLITE = os.getenv('USE_SQLITE')
+USE_SQLITE = os.getenv('USE_SQLITE', default='True') == 'True'
 
 if USE_SQLITE:
     DATABASES = {
