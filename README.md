@@ -1,3 +1,6 @@
+### Workflow
+[![Main Kittygram workflow](https://github.com/PotashevIlya/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/PotashevIlya/kittygram_final/actions/workflows/main.yml)
+
 # Проект Kittygram
 ## Описание проекта
 Kittygram - это проект, который позволяет вам делиться с миром информацией о своих котиках. Вы можете загрузить фотографию вашего любимца, указать его имя, год рождения и, конечно же, самые разнообразные "достижения". 
@@ -29,10 +32,6 @@ docker compose -f docker-compose.production.yml exec backend cp -r /app/collecte
 ___
 ### Стек :bulb:
 Django, Gunicorn, nginx, Rest API (DRF), PostgreSQL, Docker, CI/CD (GitHub Actions), React, Yandex Cloud.
-___
-### Workflow
-[![Main Kittygram workflow](https://github.com/PotashevIlya/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/PotashevIlya/kittygram_final/actions/workflows/main.yml)
-
 ___  
 #### Автор проекта:    
 :small_orange_diamond: [Поташев Илья](https://github.com/PotashevIlya)  
